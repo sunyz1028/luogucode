@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# luoguoj
-=======
 # [**洛谷**](https://www.luogu.com.cn)
 ## 用于记录洛谷提交的代码以及总结
 * 4.2
@@ -11,4 +8,4 @@
    * [P2249 查找](https://www.luogu.com.cn/problem/P2249) : **数论,数学**，~~二分答案~~
 * 4.3
    * [P1678 烦恼的高考志愿](https://www.luogu.com.cn/problem/P1678)
->>>>>>> 9a0c25b... “”新建“
+
