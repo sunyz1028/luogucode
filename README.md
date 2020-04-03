@@ -7,5 +7,5 @@
    * [P1102 A-B 数对](https://www.luogu.com.cn/problem/P1102) : **数论,数学**,哈希,排序,二分查找
    * [P2249 查找](https://www.luogu.com.cn/problem/P2249) : **数论,数学**，~~二分答案~~
 * 4.3
-   * [P1678 烦恼的高考志愿](https://www.luogu.com.cn/problem/P1678)
+   * [P1678 烦恼的高考志愿](https://www.luogu.com.cn/problem/P1678) : 模拟,贪心,排序,二分查找
 
