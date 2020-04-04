@@ -51,13 +51,61 @@
 
 ## 说明/提示
 
-对于 20\%20% 的数据，N ≤10。
+对于 20% 的数据，N ≤10。
 
-对于 40\%40% 的数据，N ≤1000。
+对于 40% 的数据，N ≤1000。
 
-对于 100\%100% 的数据，1≤*N*≤10^5，M ≤ N，Ai <108， 答案不超过 10^9。
+对于 100% 的数据，1≤*N*≤10^5，M ≤ N，Ai <108， 答案不超过 10^9。
 
 
 
 ***
+
+简单二分答案法，但要注意两点。
+
+1. 初始值左端为最长的长度，右端为总长度
+2. **分组最后有剩下来的单独为一组！！**
+
+***
+
+
+
+```c++
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+int main() {
+	ll n,m,a[110000]={0},cot=0,maxn=0,ans;
+	scanf("%lld %lld",&n,&m);
+	for(ll i=0;i<n;i++){
+		scanf("%lld",&a[i]);
+		cot+=a[i];
+		maxn=max(a[i],maxn);
+	}
+	ll l=maxn,r=cot;
+	while(l<=r){
+		ll mid=(l+r)/2,t=0,sum=0;
+		for(int i=0;i<n;i++){
+			if(sum+a[i]>mid){
+				sum=a[i];
+				t++;
+			}else if(sum+a[i]==mid){
+				sum=0;
+				t++;
+			}else if(sum+a[i]<mid){
+				sum+=a[i];
+			}
+		}
+		if(sum>0)	t++;
+		if(t<=m){
+			ans=mid;
+			r=mid-1;
+		}	
+		else if(t>m)	l=mid+1;
+	}
+	printf("%lld",ans);
+	return 0;
+}
+```
 

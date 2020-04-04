@@ -82,3 +82,56 @@ kotori 想把这些设备一起使用，直到其中有设备能量降为 0。�
 
 ***
 
+二分答案法，因为充电是连续的且切换时间不计，所以只要换的够快就相当于可以同时给几个设备充电。
+
+同时要注意数据 l最大可以取到1e10 （n * bi = 1e5 * 1e5 = 1e10）
+
+还要注意精度只需要1e-4如果过大会卡时
+
+
+
+#### 总结一下二分题目：
+
+二分查找题目是针对有序数列进行查找，首先要排队。
+
+二分答案题最重要的是找到 l 和 r 并且有精度时也要注意精度。大同小异，记住大概的模板就可以了。
+
+***
+
+
+
+```c++
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+double a[110000]={0},b[110000]={0};
+int main() {
+	int n,p;
+	long double suma=0;
+	scanf("%d %d",&n,&p);
+	for(int i=0;i<n;i++){
+		scanf("%lf %lf",&a[i],&b[i]);
+		suma+=a[i];
+	}
+	if(p>=suma){
+		printf("-1");
+		return 0;
+	}
+	double l=0.0,r=10000000000,m,sum;
+	while((r-l)>=0.000001){
+		m=(l+r)/2,sum=0;
+		for(int i=0;i<n;i++){
+			if(b[i]>=m*a[i])	continue;
+			sum=sum+b[i]-m*a[i];
+		}
+		sum+=p*m;
+		//printf("%lf %lf %lf %lf\n",l,m,r,sum);
+		if(sum>0)	l=m;
+		else if(sum<0)	r=m;
+		else break;
+	}
+	printf("%.10lf",m);
+	return 0;
+}
+```
+
